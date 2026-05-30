@@ -1,16 +1,66 @@
-# React + Vite
+# Notes Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React note management app built with Vite and Tailwind CSS. Users can add, edit, delete, and search notes, and note data is stored in the browser's local storage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Create new notes with title and details
+- Edit existing notes
+- Delete notes
+- Search notes by title
+- Persist notes in `localStorage`
+- Light/Dark mode toggle
 
-## React Compiler
+## Components and their responsibilities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/App.jsx`
+  - Manages application state and theme mode
+  - Loads and saves notes from/to `localStorage`
+  - Handles add, edit, delete, and search functionality
+  - Renders the note form, search bar, and note cards
 
-## Expanding the ESLint configuration
+- `src/components/NoteForm.jsx`
+  - Displays the note input form
+  - Accepts title and details
+  - Submits new or updated notes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/components/NoteCard.jsx`
+  - Displays each note as a card
+  - Shows note title, details, and creation time
+  - Provides Edit and Delete buttons for each note
+
+- `src/components/SearchBar.jsx`
+  - Provides a search input field
+  - Filters notes in real time by title
+
+## Getting started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+## Notes
+
+- Notes are kept in the browser's `localStorage`
+- Search only filters note titles
+- Editing a note fills the form with the selected note contents
